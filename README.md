@@ -11,14 +11,23 @@
 **Supernetting Visual**
 
 10.163.0.0/22
-├─ 10.163.0.0/23        (Sekretariat)
+
+├─ 10.163.0.0/23(Sekretariat)
+
 └─ 10.163.2.0/23
+
    ├─ 10.163.2.0/24     (Kurikulum)
+   
    └─ 10.163.3.0/24
+   
       ├─ 10.163.3.0/25      (Guru & Tendik)
+      
       ├─ 10.163.3.128/26    (Sarpras)
+      
       ├─ 10.163.3.192/27    (Pengawas - Cabang)
+      
       ├─ 10.163.3.224/29    (Server & Admin)
+      
       └─ 10.163.3.232/30    (Link R-HQ ↔ R-Branch)
 
 **Topologi**
