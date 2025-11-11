@@ -9,7 +9,7 @@
 <img width="757" height="62" alt="image" src="https://github.com/user-attachments/assets/45d5e23d-4ef7-43f4-8156-d4eba618b0c9" />
 
 **Supernetting Visual**
-
+```
 10.163.0.0/22
 
 ├─ 10.163.0.0/23(Sekretariat)
@@ -29,6 +29,8 @@
       ├─ 10.163.3.224/29    (Server & Admin)
       
       └─ 10.163.3.232/30    (Link R-HQ ↔ R-Branch)
+```
+
 
 **Topologi**
 
