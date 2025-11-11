@@ -39,55 +39,27 @@
 
 ## 4) Konfigurasi Inti
 
-### 4.1. R‑HQ
+### 4.3. Switch Pusat
 ```console
 conf t
-hostname R-HQ
-no ip domain-lookup
-no router rip
+vlan 100 name SEKRETARIAT
+vlan 200 name KURIKULUM
+vlan 300 name GURU_TENDIK
+vlan 400 name SARPRAS
+vlan 500 name SERVER_ADMIN
 
-default interface gi0/0
-interface gi0/0
- no ip address
- no shutdown
- exit
-
-! Subinterface per VLAN
-interface gi0/0.100
- encapsulation dot1Q 100
- ip address 10.163.0.1 255.255.254.0
- exit
-interface gi0/0.200
- encapsulation dot1Q 200
- ip address 10.163.2.1 255.255.255.0
- exit
-interface gi0/0.300
- encapsulation dot1Q 300
- ip address 10.163.3.1 255.255.255.128
- exit
-interface gi0/0.400
- encapsulation dot1Q 400
- ip address 10.163.3.129 255.255.255.192
- exit
-interface gi0/0.500
- encapsulation dot1Q 500
- ip address 10.163.3.225 255.255.255.248
- exit
-
-! Link ke cabang
-interface gi0/1
- description Link_to_R-Branch
- ip address 10.163.3.233 255.255.255.252
- no shutdown
- exit
-
-! Route ke cabang (Pengawas)
-ip route 10.163.3.192 255.255.255.224 10.163.3.234
+interface fa0/1
+ description trunk_to_R-HQ_gi0/0
+ switchport mode trunk
+ switchport trunk allowed vlan 100,200,300,400,500
+ spanning-tree portfast trunk
 end
 write memory
 ```
 
-### 4.2. R‑Branch
+
+
+### 4.2. R‑Cabang
 ```console
 conf t
 hostname R-Branch
@@ -111,25 +83,6 @@ ip route 10.163.0.0 255.255.252.0 10.163.3.233
 end
 write memory
 ```
-
-### 4.3. Switch Pusat (2960) — minimum
-```console
-conf t
-vlan 100 name SEKRETARIAT
-vlan 200 name KURIKULUM
-vlan 300 name GURU_TENDIK
-vlan 400 name SARPRAS
-vlan 500 name SERVER_ADMIN
-
-interface fa0/1
- description trunk_to_R-HQ_gi0/0
- switchport mode trunk
- switchport trunk allowed vlan 100,200,300,400,500
- spanning-tree portfast trunk
-end
-write memory
-```
-
 ---
 
 ## 5) Verifikasi Cepat
