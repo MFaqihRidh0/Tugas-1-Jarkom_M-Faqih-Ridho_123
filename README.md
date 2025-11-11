@@ -32,12 +32,12 @@
 ## 3) Ringkasan CIDR & Supernetting
 - Gabungkan subnet kecil 10.163.3.x → **10.163.3.0/24**.
 - 10.163.2.0/24 + 10.163.3.0/24 → **10.163.2.0/23**.
-- 10.163.0.0/23 + 10.163.2.0/23 → **10.163.0.0/22** (supernet final).
+- 10.163.0.0/23 + 10.163.2.0/23 → **10.163.0.0/22** .
 - Wildcard mask supernet: **0.0.3.255**.
 
 ---
 
-## 4) Konfigurasi Inti (Ringkas)
+## 4) Konfigurasi Inti
 
 ### 4.1. R‑HQ
 ```console
